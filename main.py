@@ -5,7 +5,7 @@ import config
 
 def main():
     """
-    Main program driver.
+    Main function.
     """
     try:
         IBMQ.save_account("config.ibm_key", overwrite = True)

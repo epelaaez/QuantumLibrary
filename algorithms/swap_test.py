@@ -1,6 +1,6 @@
-from algorithms import *
+from . import *
 
-def swap_test(img_path = 'output_images/circuit.jpg'):
+def swap_test(img_path = 'output_images'):
     """
     The swap test circuit can tell us if two registers are in the same state without measuring them. However, it cannot tell us what state they are in. 
     """
@@ -31,5 +31,5 @@ def swap_test(img_path = 'output_images/circuit.jpg'):
     counts  = result.get_counts(qc)
     print(counts)
 
-    qc.draw(output = "mpl", filename = img_path)
-    plot_histogram(counts).savefig(img_path)
+    qc.draw(output = "mpl", filename = join(img_path, 'circuit.jpg'))
+    plot_histogram(counts).savefig(join(img_path, 'histogram.jpg'))

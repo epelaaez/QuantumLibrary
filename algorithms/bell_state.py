@@ -1,6 +1,6 @@
-from algorithms import *
+from . import *
 
-def create_bell_state(img_path = 'output_images/circuit.jpg'):
+def create_bell_state(img_path = 'output_images'):
     """
     Creates bell state with equal probability of getting state |00> and |11>.
     """
@@ -21,5 +21,5 @@ def create_bell_state(img_path = 'output_images/circuit.jpg'):
     counts  = result.get_counts(qc)
     print(counts)
 
-    qc.draw(output = "mpl", filename = img_path)
-    plot_histogram(counts).savefig(img_path)
+    qc.draw(output = "mpl", filename = join(img_path, 'circuit.jpg'))
+    plot_histogram(counts).savefig(join(img_path, 'histogram.jpg'))
