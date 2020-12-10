@@ -22,8 +22,11 @@ def create_bell_state():
     creg = ClassicalRegister(2, 'c')
     qc   = QuantumCircuit(qreg, creg)
 
+    # Create bell state itself by putting first qubit into superposition and then applying a CNOT gate between the two qubits
     qc.h(qreg[0])
     qc.cx(qreg[0], qreg[1])
+
+    # Measure both qubits
     qc.measure(qreg[0], creg[0])
     qc.measure(qreg[1], creg[1])
 
