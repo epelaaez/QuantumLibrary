@@ -1,0 +1,9 @@
+# Ignore file with sensitive data
+config.py
+
+# Ignore folders
+__pycache__/
+.vscode/
+
+# Ignore generated images
+output_images/
