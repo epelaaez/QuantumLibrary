@@ -3,6 +3,6 @@ from os.path import join
 from qiskit import *
 from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector
 
-from .bell_state import *
-from .swap_test import *
-from .phase_kickback import *
+from .bell_state.bell_state import create_bell_state
+from .swap_test.swap_test import swap_test
+from .phase_kickback.phase_kickback import phase_kickback

@@ -1,4 +1,4 @@
-from . import *
+from .. import *
 
 def create_bell_state(img_path = 'output_images'):
     """

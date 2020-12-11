@@ -1,4 +1,4 @@
-from . import *
+from .. import *
 
 def phase_kickback(img_path = 'output_images'):
     """

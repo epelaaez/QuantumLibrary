@@ -1,4 +1,4 @@
-from . import *
+from .. import *
 
 def swap_test(img_path = 'output_images'):
     """
