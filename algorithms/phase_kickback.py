@@ -5,9 +5,8 @@ def phase_kickback(img_path = 'output_images'):
     Phase kickback
     """
     qreg = QuantumRegister(2, 'q')
-    creg = ClassicalRegister(2, 'c')
-    qc   = QuantumCircuit(qreg, creg)
-
+    qc   = QuantumCircuit(qreg)
+    
     # Put both qubits into superposition
     qc.h(qreg[0])
     qc.h(qreg[1])
@@ -19,14 +18,8 @@ def phase_kickback(img_path = 'output_images'):
     qc.h(qreg[0])
     qc.h(qreg[1])
 
-    # Measure both qubits
-    qc.measure(qreg[0], creg[0])
-    qc.measure(qreg[1], creg[1])
-
-    backend = BasicAer.get_backend('qasm_simulator')
-    result  = execute(qc, backend, shots = 1000).result()
-    counts  = result.get_counts(qc)
-    print(counts)
+    state_vector_backend = Aer.get_backend('statevector_simulator')
+    final_state_vector   = execute(qc, state_vector_backend).result().get_statevector()
 
     qc.draw(output = "mpl", filename = join(img_path, 'circuit.jpg'))
-    plot_histogram(counts).savefig(join(img_path, 'histogram.jpg'))
+    plot_bloch_multivector(final_state_vector).savefig(join(img_path, 'vector.jpg'))
