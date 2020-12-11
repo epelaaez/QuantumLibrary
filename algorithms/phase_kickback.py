@@ -2,11 +2,11 @@ from . import *
 
 def phase_kickback(img_path = 'output_images'):
     """
-    Phase kickback
+    Phase kickback.
     """
     qreg = QuantumRegister(2, 'q')
     qc   = QuantumCircuit(qreg)
-    
+
     # Put both qubits into superposition
     qc.h(qreg[0])
     qc.h(qreg[1])
