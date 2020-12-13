@@ -12,7 +12,7 @@ def main():
     except NameError:
         raise Exception("You have not set up your config file correctly.")
 
-    even_oracle()
+    teleportation()
 
 if __name__ == "__main__":
     main()
