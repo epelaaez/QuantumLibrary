@@ -22,6 +22,10 @@ def teleportation(img_path = 'output_images'):
     qc.reset(qreg_sender)
     qc.h(qreg_sender)
 
+    # Use this gates to prepare the qubit to a more complicated state
+    # qc.rz(math.radians(45), qreg_sender)
+    # qc.h(qreg_sender)
+
     qc.barrier()
 
     # Send qubit
