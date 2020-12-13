@@ -18,10 +18,8 @@ def teleportation(img_path = 'output_images'):
 
     qc.barrier()
 
-    # Prepare qubit to be sent with any state
+    # Prepare qubit to be sent with any state. This example prepares it to a simple superposition state.
     qc.reset(qreg_sender)
-    qc.h(qreg_sender)
-    qc.rz(math.radians(45), qreg_sender)
     qc.h(qreg_sender)
 
     qc.barrier()
