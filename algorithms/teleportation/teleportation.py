@@ -20,6 +20,7 @@ def teleportation(img_path = 'output_images'):
 
     # Prepare qubit to be sent with specific state
     qc.reset(qreg_sender)
+    qc.h(qreg_sender)
     qc.rz(math.radians(45), qreg_sender)
     qc.h(qreg_sender)
 
