@@ -7,3 +7,5 @@ from os.path import join
 from qiskit import *
 from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector
 ```
+
+The images contained in [output](/output) are examples of the images generated with [Qiskit](https://qiskit.org). The examples contained there are from the [teleportation](/algorithms/teleportation/teleportation.py) circuit.
