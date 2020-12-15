@@ -1,6 +1,6 @@
 from .. import *
 
-def swap_test(img_path = 'output_images'):
+def swap_test(img_path = IMG_PATH):
     """
     The swap test circuit can tell us if two registers are in the same state without measuring them. However, it cannot tell us what state they are in. 
     """

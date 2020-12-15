@@ -1,6 +1,6 @@
 from .. import *
 
-def teleportation(img_path = 'output_images'):
+def teleportation(img_path = IMG_PATH):
     """
     Teleports the precise state of one qubit into another. 
     """

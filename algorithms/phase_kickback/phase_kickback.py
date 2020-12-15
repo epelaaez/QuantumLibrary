@@ -1,6 +1,6 @@
 from .. import *
 
-def phase_kickback(img_path = 'output_images'):
+def phase_kickback(img_path = IMG_PATH):
     """
     Phase kickback.
     """

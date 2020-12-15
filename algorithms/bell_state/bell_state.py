@@ -1,6 +1,6 @@
 from .. import *
 
-def create_bell_state(img_path = 'output_images'):
+def create_bell_state(img_path = IMG_PATH):
     """
     Creates bell state with equal probability of getting state |00> and |11>.
     """
