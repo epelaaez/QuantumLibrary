@@ -8,7 +8,12 @@ If you want to have access to all the algorithms implemented, clone the reposito
 
 Once you clone the repository, you will need to create a new file called `config.py`, this is where you will store your IBM Quantum Experience API token. If you don't have an account yet, go to [IBM Quantum Experience](https://quantum-computing.ibm.com) to create one. Inside this file, just paste the following code replacing `YOUR_KEY` with your actual key.
 ```python
-ibm_key = "YOUR_KEY"
+IBM_KEY = "YOUR_KEY"
+```
+
+You will also need to setup the path in which you want the output images to be stored. To do this, go into the `__init__.py` file inside the `algorithms` module (folder) and change the `IMG_PATH` variable to your desired path. Here is the default value. 
+```python
+IMG_PATH = 'output_images'
 ```
 
 If you want to run a certain circuit without downloading the whole `algorithms` module, make sure to include these imports at the top of your file instead of the single import given.
