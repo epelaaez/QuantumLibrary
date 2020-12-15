@@ -8,7 +8,7 @@ def main():
     Main function.
     """
     try:
-        IBMQ.save_account("config.ibm_key", overwrite = True)
+        IBMQ.save_account("config.IBM_KEY", overwrite = True)
     except NameError:
         raise Exception("You have not set up your config file correctly.")
 
