@@ -1,6 +1,8 @@
 # Quantum Circuits
 This repository contains implementations of important quantum circuits used in quantum computing using Qiskit; along with a brief description and explanation for each one of them. I will be adding circuits while I learn them, so the implementations or descriptions may not be completely correct at all times. But I will make sure to correct anything as soon as I notice it. 
 
+The main goal of this project is to build a large collection of quantum circuits, from the simplest ones to more complicated ones. To achieve this, contributions are very welcome and encouraged, see more in [Contributing](#contributing)
+
 The images contained in [output](/output) are examples of the images generated with [Qiskit](https://qiskit.org). The examples contained there are from the [teleportation](/algorithms/teleportation/teleportation.py) circuit.
 
 ## Set up
@@ -22,3 +24,6 @@ from os.path import join
 from qiskit import *
 from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector
 ```
+
+## Contributing
+Anyone is welcome and encouraged to contribute to this project, whether you are an expert in the field or just getting started on it. To contribute, you can clone the repository in your local machine, make the changes you want to contribute in a separate branch, and then open a pull request describing the changes you made. The pull request will then be reviewed and discussed prior to merging. 
