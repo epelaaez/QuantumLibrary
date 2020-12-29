@@ -24,6 +24,7 @@ from os.path import join
 from qiskit import *
 from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector
 ```
+Imports from `qiskit.visualization` may vary depending on the circuit, so be sure to import only the neccesary ones.
 
 ## Contributing
 Anyone is welcome and encouraged to contribute to this project, whether you are an expert in the field or just getting started on it. To contribute, you can clone the repository in your local machine, make the changes you want to contribute in a separate branch, and then open a pull request describing the changes you made. The pull request will then be reviewed and discussed prior to merging. 
