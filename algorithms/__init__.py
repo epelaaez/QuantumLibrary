@@ -1,6 +1,7 @@
 from os.path import join
 
 import math
+import matplotlib
 
 from qiskit import *
 from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector

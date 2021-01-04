@@ -1,6 +1,5 @@
 from qiskit import IBMQ
 from algorithms import *
-import matplotlib
 import config
 
 def main():
@@ -12,7 +11,7 @@ def main():
     except NameError:
         raise Exception("You have not set up your config file correctly.")
 
-    phase_kickback()
+    swap_test()
 
 if __name__ == "__main__":
     main()
