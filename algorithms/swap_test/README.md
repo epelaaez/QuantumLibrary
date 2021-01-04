@@ -1,34 +1,36 @@
 # Swap test
-The swap test can tell us if two registers are in the same state without measuring them. However, it cannot tell us what state they are in.
+The swap test can tell us if two registers are in the same state without measuring them, making it a pretty useful tool in bigger quantum algorithms or even by its own. However, it cannot tell us what state they are in, but it will tell us how similar two qubits (or registers) are.  
 
+## Description
 Let's say that we have two states, |q<sub>1</sub>> and |q<sub>2</sub>>, along with one ancillary qubit, |a<sub>0</sub>>. We will not focus on the exact state the first two qubits are in, but on the state of the ancillary qubit (which will eventually give us the output we are looking for). 
 
 First, |a<sub>0</sub>> goes through a Hadamard gate, leaving it in a state of equal superposition. So, the state of our entire circuit at this point is:
 
-(1/sqrt(2))(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>1</sub>q<sub>2</sub>1>).
+> (1/sqrt(2))(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>1</sub>q<sub>2</sub>1>).
 
 Then, we apply the CSWAP gate with |a<sub>0</sub>> as the control qubit. This changes the state of the circuit to:
 
-(1/sqrt(2))(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>2</sub>q<sub>1</sub>1>), notice that |q<sub>1</sub>> and |q<sub>2</sub>> are swaped in the case that |a<sub>0</sub>> = |1>.
+> (1/sqrt(2))(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>2</sub>q<sub>1</sub>1>), notice that |q<sub>1</sub>> and |q<sub>2</sub>> are swaped in the case that |a<sub>0</sub>> = |1>.
 
 Then, we apply the next Hadamard gate to |a<sub>0</sub>>, giving us:
 
-(1/2)(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>1</sub>q<sub>2</sub>1> + |q<sub>2</sub>q<sub>1</sub>0> - |q<sub>2</sub>q<sub>1</sub>1>).
+> (1/2)(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>1</sub>q<sub>2</sub>1> + |q<sub>2</sub>q<sub>1</sub>0> - |q<sub>2</sub>q<sub>1</sub>1>).
 
 Finally, we apply a Pauli-X gate to |a<sub>0</sub>>, giving us:
 
-(1/2)(|q<sub>1</sub>q<sub>2</sub>1> + |q<sub>1</sub>q<sub>2</sub>0> + |q<sub>2</sub>q<sub>1</sub>1> - |q<sub>2</sub>q<sub>1</sub>0>).
+> (1/2)(|q<sub>1</sub>q<sub>2</sub>1> + |q<sub>1</sub>q<sub>2</sub>0> + |q<sub>2</sub>q<sub>1</sub>1> - |q<sub>2</sub>q<sub>1</sub>0>).
 
 It may be hard to notice at first, but there is something very interesting about this final state we got to. Let's imagine for a second that |q<sub>1</sub>> = |q<sub>2</sub>>, and we wil denote this common state as |q>. With this in mind, the circuit of our state will simplify to:
 
-(1/2)(|qq1> + |qq0> + |qq1> - |qq0>) = (1/2)(2|qq1>) = |qq1>.
+> (1/2)(|qq1> + |qq0> + |qq1> - |qq0>) = (1/2)(2|qq1>) = |qq1>.
 
 This shows that whenever |q<sub>1</sub>> = |q<sub>2</sub>>, we will get |1> as an output of the ancillary qubit. Now, what happens when our states differ? Let's look at the simple example where |q<sub>1</sub>> = |0> and |q<sub>2</sub>> = |1>. In this case our final state will turn into:
 
-(1/2)(|011> + |010> + |101> - |100>), and nothing can be simplified.
+> (1/2)(|011> + |010> + |101> - |100>), and nothing can be simplified.
 
 Thus, in the case that |q<sub>1</sub>> =/= |q<sub>2</sub>>, the ancillary qubit will have an equal chance of measuring |0> or |1>. This results can be extended to registers of qubits |q<sub>1</sub>> and |q<sub>2</sub>> rather than the single qubits we used to work through this example. 
 
+## Implementation and results
 In the implementation of the swap test presented here, |q<sub>1</sub>> and |q<sub>2</sub>> are quantum registers of two qubits each. The circuit presented below first prepares the registers into their initial states (which we chose to be equal so |a<sub>0</sub>> outputs |1>) and then applies the same procedure described above, with the only difference that the CSWAP gate is applied for each qubit and its pair in the other register. The circuit looks as follows: 
 
 ![circuit](https://user-images.githubusercontent.com/63567458/102344325-0538f900-3f9c-11eb-87aa-dcfb800d299a.jpg)
