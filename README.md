@@ -8,7 +8,7 @@ The images contained in [output](/output) are examples of the images generated w
 ## Set up
 If you want to have access to all the algorithms implemented, clone the repository into your local machine and treat the `algorithms` module like any other one. Since the algorithms implemented in this module are mostly to experiment rather than practical uses, it may be best to just use the `main.py` file contained within the repository to call the different circuits (functions).
 
-Once you clone the repository, you will need to create a new file called `config.py`, this is where you will store your IBM Quantum Experience API token. If you don't have an account yet, go to [IBM Quantum Experience](https://quantum-computing.ibm.com) to create one. Inside this file, just paste the following code replacing `YOUR_KEY` with your actual key.
+Once you clone the repository, you will need to create a new file called `config.py` (or change the name of the provided `config_ex.py` file), this is where you will store your IBM Quantum Experience API token. If you don't have an account yet, go to [IBM Quantum Experience](https://quantum-computing.ibm.com) to create one. Inside this file, just replace the following code `YOUR_KEY` with your actual key.
 ```python
 IBM_KEY = "YOUR_KEY"
 ```
