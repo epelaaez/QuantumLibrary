@@ -1,10 +1,10 @@
 # Phase kickback
-Phase kickback is a fundamental building block of larger quantum circuit. As you may imagine, this circuit by itself may not have a lot of practical uses, but when incorporated into a larger algorithm, it turns out to be very useful. The circuit implemented is just an example between two qubits, which makes it easier to understand and simplify, but there is a way to extend phase kickback into many more qubits. However, this explanation will only focus on the circuit implemented here. If you want to get a deeper explanation, I recommend looking at this [explanation](https://qr.ae/pNZ46i) by Pranav Gokhale. 
+Phase kickback is a fundamental building block of larger quantum circuit. As you may imagine, this circuit by itself may not have a lot of practical uses, but when incorporated into a larger algorithm, it turns out to be very useful. The circuit implemented is just an example between two qubits, which makes it easier to understand and simplify, but there is a way to extend phase kickback into many more qubits. However, this explanation will only focus on the circuit implemented here. If you want to get a deeper explanation, I recommend looking at this [answer](https://qr.ae/pNZ46i) by Pranav Gokhale. 
 
 With this explained, we can look into the circuit implemented here. It looks like this:
 ![circuit](https://user-images.githubusercontent.com/63567458/102343375-c0609280-3f9a-11eb-92ed-0825d0efec6c.jpg)
 
-As usual, both qubits are initialized to the state |0>.
+Both qubits are initialized to the state |0> and the second qubit is sent through a Pauli-X gate to turn it into the |1> state. It's important to not that the state of the second qubit is an arbitatry decision, meaning that it could be initialized into any possible state and the circuit would work just fine. 
 
 **TODO: explain circuit**
 
