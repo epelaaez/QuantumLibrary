@@ -3,7 +3,7 @@ Phase kickback is a fundamental building block of larger quantum circuit. As you
 
 First, let's take a look at how the circuit we implemented looks like:
 
-![circuit](https://user-images.githubusercontent.com/63567458/104107674-69f72300-52be-11eb-8247-3f50a4f10721.jpg)
+![circuit](https://user-images.githubusercontent.com/63567458/104107811-b7c05b00-52bf-11eb-8ce6-b49ed6de9258.jpg)
 
 
 As you can see, the circuit implemented in this example is very **basic**, but it works as an introduction to the very important concept of phase kickback.
