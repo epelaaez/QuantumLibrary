@@ -9,7 +9,7 @@ def basic_phase_kickback(img_path = IMG_PATH):
 
     qc.x(qreg[1])
     qc.h(qreg[0])
-    qc.cu1(math.pi/4, 0, 1) # Controlled T gate with control qubit |0> and target qubit |1>
+    qc.cp(math.pi/4, 0, 1) # Controlled T gate with control qubit |0> and target qubit |1>
 
     # Output
     backend = Aer.get_backend('statevector_simulator')
