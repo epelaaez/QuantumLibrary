@@ -11,7 +11,7 @@ def main():
     except NameError:
         raise Exception("You have not set up your config file correctly.")
 
-    phase_kickback()
+    basic_phase_kickback()
 
 if __name__ == "__main__":
     main()

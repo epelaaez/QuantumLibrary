@@ -10,5 +10,5 @@ IMG_PATH = 'output_images'
 
 from .bell_state.bell_state import create_bell_state
 from .swap_test.swap_test import swap_test
-from .phase_kickback.phase_kickback import phase_kickback
+from .basic_phase_kickback.basic_phase_kickback import basic_phase_kickback
 from .teleportation.teleportation import teleportation
