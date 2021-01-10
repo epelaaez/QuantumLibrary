@@ -6,27 +6,27 @@ Let's say that we have two states, |q<sub>1</sub>> and |q<sub>2</sub>>, along wi
 
 First, |a<sub>0</sub>> goes through a Hadamard gate, leaving it in a state of equal superposition. So, the state of our entire circuit at this point is:
 
-![image](https://user-images.githubusercontent.com/63567458/104123647-bbe68a00-534c-11eb-901b-993b52f2db25.png)
+<img src="https://user-images.githubusercontent.com/63567458/104123647-bbe68a00-534c-11eb-901b-993b52f2db25.png" height="70px">
 
 Then, we apply the CSWAP gate with |a<sub>0</sub>> as the control qubit. This changes the state of the circuit to:
 
-![image](https://user-images.githubusercontent.com/63567458/104123622-9194cc80-534c-11eb-80e6-15b1280eac78.png)
+<img src="https://user-images.githubusercontent.com/63567458/104123622-9194cc80-534c-11eb-80e6-15b1280eac78.png" height="70px">
 
 Then, we apply the next Hadamard gate to |a<sub>0</sub>>, giving us:
 
-![image](https://user-images.githubusercontent.com/63567458/104123631-9eb1bb80-534c-11eb-9c2f-2fa8f99fa717.png)
+<img src="https://user-images.githubusercontent.com/63567458/104123631-9eb1bb80-534c-11eb-9c2f-2fa8f99fa717.png" height="70px">
 
 Finally, we apply a Pauli-X gate to |a<sub>0</sub>>, giving us:
 
-![image](https://user-images.githubusercontent.com/63567458/104123642-ac674100-534c-11eb-99ec-cdec198cd72d.png)
+<img src="https://user-images.githubusercontent.com/63567458/104123642-ac674100-534c-11eb-99ec-cdec198cd72d.png" height="70px">
 
 It may be hard to notice at first, but there is something very interesting about this final state we got to. Let's imagine for a second that |q<sub>1</sub>> = |q<sub>2</sub>>, and we wil denote this common state as |q>. With this in mind, the circuit of our state will simplify to:
 
-![image](https://user-images.githubusercontent.com/63567458/104123699-049e4300-534d-11eb-8a2c-9f7f2b13713a.png)
+<img src="https://user-images.githubusercontent.com/63567458/104123699-049e4300-534d-11eb-8a2c-9f7f2b13713a.png" height="70px">
 
 This shows that whenever |q<sub>1</sub>> = |q<sub>2</sub>>, we will get |1> as an output of the ancillary qubit. Now, what happens when our states differ? Let's look at the simple example where |q<sub>1</sub>> = |0> and |q<sub>2</sub>> = |1>. In this case our final state will turn into:
 
-![image](https://user-images.githubusercontent.com/63567458/104123752-416a3a00-534d-11eb-984e-dad3105356c2.png)
+<img src="https://user-images.githubusercontent.com/63567458/104123752-416a3a00-534d-11eb-984e-dad3105356c2.png" height="70px">
 
 Thus, in the case that |q<sub>1</sub>> =/= |q<sub>2</sub>>, the ancillary qubit will have an equal chance of measuring |0> or |1>. This results can be extended to registers of qubits |q<sub>1</sub>> and |q<sub>2</sub>> rather than the single qubits we used to work through this example. 
 
