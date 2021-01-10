@@ -6,27 +6,27 @@ Let's say that we have two states, |q<sub>1</sub>> and |q<sub>2</sub>>, along wi
 
 First, |a<sub>0</sub>> goes through a Hadamard gate, leaving it in a state of equal superposition. So, the state of our entire circuit at this point is:
 
-![image](https://user-images.githubusercontent.com/63567458/104122447-54790c00-5345-11eb-80c3-f999a7969886.png)
+![image](https://user-images.githubusercontent.com/63567458/104123647-bbe68a00-534c-11eb-901b-993b52f2db25.png)
 
 Then, we apply the CSWAP gate with |a<sub>0</sub>> as the control qubit. This changes the state of the circuit to:
 
-> (1/sqrt(2))(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>2</sub>q<sub>1</sub>1>), notice that |q<sub>1</sub>> and |q<sub>2</sub>> are swaped in the case that |a<sub>0</sub>> = |1>.
+![image](https://user-images.githubusercontent.com/63567458/104123622-9194cc80-534c-11eb-80e6-15b1280eac78.png)
 
 Then, we apply the next Hadamard gate to |a<sub>0</sub>>, giving us:
 
-> (1/2)(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>1</sub>q<sub>2</sub>1> + |q<sub>2</sub>q<sub>1</sub>0> - |q<sub>2</sub>q<sub>1</sub>1>).
+![image](https://user-images.githubusercontent.com/63567458/104123631-9eb1bb80-534c-11eb-9c2f-2fa8f99fa717.png)
 
 Finally, we apply a Pauli-X gate to |a<sub>0</sub>>, giving us:
 
-> (1/2)(|q<sub>1</sub>q<sub>2</sub>1> + |q<sub>1</sub>q<sub>2</sub>0> + |q<sub>2</sub>q<sub>1</sub>1> - |q<sub>2</sub>q<sub>1</sub>0>).
+![image](https://user-images.githubusercontent.com/63567458/104123642-ac674100-534c-11eb-99ec-cdec198cd72d.png)
 
 It may be hard to notice at first, but there is something very interesting about this final state we got to. Let's imagine for a second that |q<sub>1</sub>> = |q<sub>2</sub>>, and we wil denote this common state as |q>. With this in mind, the circuit of our state will simplify to:
 
-> (1/2)(|qq1> + |qq0> + |qq1> - |qq0>) = (1/2)(2|qq1>) = |qq1>.
+![image](https://user-images.githubusercontent.com/63567458/104123699-049e4300-534d-11eb-8a2c-9f7f2b13713a.png)
 
 This shows that whenever |q<sub>1</sub>> = |q<sub>2</sub>>, we will get |1> as an output of the ancillary qubit. Now, what happens when our states differ? Let's look at the simple example where |q<sub>1</sub>> = |0> and |q<sub>2</sub>> = |1>. In this case our final state will turn into:
 
-> (1/2)(|011> + |010> + |101> - |100>), and nothing can be simplified.
+![image](https://user-images.githubusercontent.com/63567458/104123752-416a3a00-534d-11eb-984e-dad3105356c2.png)
 
 Thus, in the case that |q<sub>1</sub>> =/= |q<sub>2</sub>>, the ancillary qubit will have an equal chance of measuring |0> or |1>. This results can be extended to registers of qubits |q<sub>1</sub>> and |q<sub>2</sub>> rather than the single qubits we used to work through this example. 
 
