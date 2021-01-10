@@ -6,7 +6,7 @@ Let's say that we have two states, |q<sub>1</sub>> and |q<sub>2</sub>>, along wi
 
 First, |a<sub>0</sub>> goes through a Hadamard gate, leaving it in a state of equal superposition. So, the state of our entire circuit at this point is:
 
-> (1/sqrt(2))(|q<sub>1</sub>q<sub>2</sub>0> + |q<sub>1</sub>q<sub>2</sub>1>).
+![image](https://user-images.githubusercontent.com/63567458/104122447-54790c00-5345-11eb-80c3-f999a7969886.png)
 
 Then, we apply the CSWAP gate with |a<sub>0</sub>> as the control qubit. This changes the state of the circuit to:
 
