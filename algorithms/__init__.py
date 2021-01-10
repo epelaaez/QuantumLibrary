@@ -5,6 +5,7 @@ import matplotlib
 
 from qiskit import *
 from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector, plot_state_city
+from qiskit.providers.ibmq import least_busy
 
 IMG_PATH = 'output_images'
 

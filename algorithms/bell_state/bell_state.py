@@ -1,6 +1,6 @@
 from .. import *
 
-def create_bell_state(img_path = IMG_PATH):
+def create_bell_state(img_path = IMG_PATH, hardware = False):
     """
     Creates bell state with equal probability of getting state |00> and |11>.
     """
@@ -16,9 +16,15 @@ def create_bell_state(img_path = IMG_PATH):
     qc.measure(qreg[0], creg[0])
     qc.measure(qreg[1], creg[1])
 
-    backend = BasicAer.get_backend('qasm_simulator')
-    result  = execute(qc, backend, shots = 1000).result()
-    counts  = result.get_counts(qc)
+    # Run circuit
+    if hardware:
+        provider = IBMQ.get_provider(hub='ibm-q')
+        backend  = least_busy(provider.backends())
+    else:
+        backend = BasicAer.get_backend('qasm_simulator')
+
+    result   = execute(qc, backend, shots = 1024).result()
+    counts   = result.get_counts(qc)
     print(counts)
 
     qc.draw(output = "mpl", filename = join(img_path, 'circuit.jpg'))

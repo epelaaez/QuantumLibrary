@@ -6,12 +6,20 @@ def main():
     """
     Main function.
     """
-    try:
-        IBMQ.save_account("config.IBM_KEY", overwrite = True)
-    except NameError:
-        raise Exception("You have not set up your config file correctly.")
+    loadIBM()
+    teleportation()
 
-    basic_phase_kickback()
+def loadIBM():
+    """
+    Loads IBM account to access real hardware to run circuits on.
+    """
+    try:
+        IBMQ.load_account()
+    except Exception:
+        try:
+            IBMQ.save_account(f"{config.IBM_KEY}", overwrite = True)
+        except NameError:
+            raise Exception("You have not set up your config file correctly.")
 
 if __name__ == "__main__":
     main()

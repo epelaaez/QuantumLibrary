@@ -1,14 +1,14 @@
 from .. import *
 
-def swap_test(img_path = IMG_PATH):
+def swap_test(img_path = IMG_PATH, hardware = False):
     """
     The swap test circuit can tell us if two registers are in the same state without measuring them. However, it cannot tell us what state they are in. 
     """
     qreg_1  = QuantumRegister(2, 'q1')
     qreg_2  = QuantumRegister(2, 'q2')
     ancilla = QuantumRegister(1, 'a')
-    creg    = ClassicalRegister(1, 'c')
-    qc      = QuantumCircuit(qreg_1, qreg_2, ancilla, creg)
+    acreg   = ClassicalRegister(1, 'c')
+    qc      = QuantumCircuit(qreg_1, qreg_2, ancilla, acreg)
 
     # Initialize first two quantum registers to desired state
     qc.h(qreg_1[0])
@@ -24,10 +24,16 @@ def swap_test(img_path = IMG_PATH):
     qc.x(ancilla[0])
 
     # Measure ancilla qubit
-    qc.measure(ancilla[0], creg[0])
+    qc.measure(ancilla, acreg)
 
-    backend = BasicAer.get_backend('qasm_simulator')
-    result  = execute(qc, backend, shots = 1000).result()
+    # Run circuit
+    if hardware:
+        provider = IBMQ.get_provider(hub='ibm-q')
+        backend  = least_busy(provider.backends())
+    else:
+        backend = BasicAer.get_backend('qasm_simulator')
+
+    result  = execute(qc, backend, shots = 1024).result()
     counts  = result.get_counts(qc)
     print(counts)
 

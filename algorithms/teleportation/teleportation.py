@@ -1,16 +1,19 @@
 from .. import *
 
-def teleportation(img_path = IMG_PATH):
+def teleportation(img_path = IMG_PATH, hardware = False):
     """
     Teleports the precise state of one qubit into another. 
     """
     qreg_sender   = QuantumRegister(1, name='q_sender')
     qreg_ep       = QuantumRegister(1, name='q_entangled')
     qreg_receiver = QuantumRegister(1, name='q_receiver')
-    creg_sender   = ClassicalRegister(1, name='c_sender')
-    creg_ep       = ClassicalRegister(1, name='c_entangled')
-    creg_receiver = ClassicalRegister(1, name='c_receiver')
-    qc = QuantumCircuit(qreg_sender, qreg_ep, qreg_receiver, creg_sender, creg_ep, creg_receiver)
+    creg_receiver = ClassicalRegister(1, name='receiver')
+    if not hardware:
+        creg_ep       = ClassicalRegister(1, name='c_entangled')
+        creg_sender   = ClassicalRegister(1, name='c_sender')
+        qc            = QuantumCircuit(qreg_sender, qreg_ep, qreg_receiver, creg_sender, creg_ep, creg_receiver)
+    else:
+        qc = QuantumCircuit(qreg_sender, qreg_ep, qreg_receiver, creg_receiver)
 
     # Entangle ep register with receiver register
     qc.h(qreg_ep)
@@ -29,16 +32,25 @@ def teleportation(img_path = IMG_PATH):
     # Send qubit
     qc.cx(qreg_sender, qreg_ep)
     qc.h(qreg_sender)
-    qc.measure(qreg_sender, creg_sender)
-    qc.measure(qreg_ep, creg_ep)
 
-    qc.barrier()
+    if not hardware:
+        qc.measure(qreg_sender, creg_sender)
+        qc.measure(qreg_ep, creg_ep)
 
-    # Receive qubit and apply gates depending on measures of sender's and entangled's qubits
-    qc.x(qreg_receiver).c_if(creg_ep, 1)
-    qc.z(qreg_receiver).c_if(creg_sender, 1)
+        qc.barrier()
 
-    qc.barrier()
+        # Receive qubit and apply gates depending on measures of sender's and entangled's qubits
+        qc.x(qreg_receiver).c_if(creg_ep, 1)
+        qc.z(qreg_receiver).c_if(creg_sender, 1)
+
+        qc.barrier()
+    else:
+        qc.barrier()
+
+        qc.cx(qreg_ep, qreg_receiver)
+        qc.cz(qreg_sender, qreg_receiver)
+
+        qc.barrier()
 
     # Measure
     qc.h(qreg_receiver)
@@ -46,10 +58,14 @@ def teleportation(img_path = IMG_PATH):
     qc.h(qreg_receiver)
     qc.measure(qreg_receiver, creg_receiver)
 
-    # Get results, draw charts and figures
-    backend = Aer.get_backend('qasm_simulator')
+    # Run circuits
+    if hardware:
+        provider = IBMQ.get_provider(hub='ibm-q')
+        backend  = least_busy(provider.backends())
+    else:
+        backend = BasicAer.get_backend('qasm_simulator')
+
     result  = execute(qc, backend, shots = 1024).result()
-    
     counts  = result.get_counts(qc)
     print(counts)
 
