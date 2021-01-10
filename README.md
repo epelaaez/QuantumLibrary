@@ -1,5 +1,5 @@
-# Quantum Circuits
-This repository contains implementations of important quantum circuits used in quantum computing using Qiskit; along with a brief description and explanation for each one of them. I will be adding circuits while I learn them, so the implementations or descriptions may not be completely correct at all times. But I will make sure to correct anything as soon as I notice it. 
+# Quantum Library
+This project aims to be a quantum library containing various circuits and algorithms commonly used in quantum computing. These will be implemented using Qiskit, one of many tools out there to write quantum algorithms but, in my opinion, the easier one to understand. Each circuit will be accompanied with a brief description of it including how it works and how it is used in larger-scale circuits or algorithms. 
 
 The main goal of this project is to build a large collection of quantum circuits, from the simplest ones to more complicated ones. To achieve this, contributions are very welcome and encouraged, see more in [Contributing](#contributing)
 
