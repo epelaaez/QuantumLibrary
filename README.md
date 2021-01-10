@@ -26,5 +26,15 @@ from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_mult
 ```
 Imports from `qiskit.visualization` may vary depending on the circuit, so be sure to import only the neccesary ones.
 
+## Run on hardware
+To run the circuits on real hardware, you will need to set up your IBM account as specified above. To run the circuit you desire in a real quantum computer, just call the function as you normally would but set the optional argument `hardware` to `True`. For example, to run the bell state circuit in real hardware, use the following code:
+```python
+create_bell_state(hardware=True)
+```
+
+You will also need to call the function `loadIBM()`, which relies on the your `config.py` file, beforehand to set up your IBM account correctly and gain access to the hardware. It is not necessary to call this function if you're not going to be using IBM's hardware to run the circuits, so you may remove it to increase the speed of the program. 
+
+Note that not all circuits may be run in real hardware and some require modifications to run correctly. Those that require modifications to run correctly will make the necessary modifications when `hardware=True`, so you don't have to worry about modifying anything. However, I encourage you to check the code and the description of the circuit to understand the modifications made, why they are needed and how they work. The circuits that can't run in real hardware won't accept the optional argument `hardware`. Again, I encourage you to check the circuit's description to understand why they can't run in real hardware. 
+
 ## Contributing
 Anyone is welcome and encouraged to contribute to this project, whether you are an expert in the field or just getting started on it. To contribute, you can clone the repository in your local machine, make the changes you want to contribute in a separate branch, and then open a pull request describing the changes you made. The pull request will then be reviewed and discussed prior to merging. 
