@@ -36,5 +36,7 @@ You will also need to call the function `loadIBM()`, which relies on the your `c
 
 Note that not all circuits may be run in real hardware and some require modifications to run correctly. Those that require modifications to run correctly will make the necessary modifications when `hardware=True`, so you don't have to worry about modifying anything. However, I encourage you to check the code and the description of the circuit to understand the modifications made, why they are needed and how they work. The circuits that can't run in real hardware won't accept the optional argument `hardware`. Again, I encourage you to check the circuit's description to understand why they can't run in real hardware. 
 
+**Note**: running a circuit on hardware can take time depending on the computers available and their queue. The circuits are programmed to choose the least busy machine, but this doesn't guarantee that it will run immediately.
+
 ## Contributing
 Anyone is welcome and encouraged to contribute to this project, whether you are an expert in the field or just getting started on it. To contribute, you can clone the repository in your local machine, make the changes you want to contribute in a separate branch, and then open a pull request describing the changes you made. The pull request will then be reviewed and discussed prior to merging. 
