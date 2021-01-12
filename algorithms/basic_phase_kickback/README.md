@@ -12,3 +12,6 @@ As you can see, the circuit implemented in this example is very **basic**, but i
 
 Our resulting statevector is the following:
 ![vector](https://user-images.githubusercontent.com/63567458/104107710-b04c8200-52be-11eb-9efa-97816d6c7121.jpg)
+
+## Running on hardware
+In this circuit, an option to run the circuit on hardware is not included. This is due to the fact that we use Qiskit's statevector simulation, which allows us see the quantum states (including its phases) without actually measuring the qubits. This is not possible using hardware, because we need to measure the qubit to get information about its state, but measuring will make the qubit go to one of the basis states. 

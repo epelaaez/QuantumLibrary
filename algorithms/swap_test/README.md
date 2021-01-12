@@ -44,3 +44,10 @@ The histogram for this implementation of the swap test looks like this (we get t
 ![histogram](https://user-images.githubusercontent.com/63567458/102344351-0ec26100-3f9c-11eb-87b2-347cc3f75a13.jpg)
 
 <a name="footnote_1">1</a>: Note that to account for errors in the quantum computer itself we can allow some occurences of the state |0> and still be certain that the two registers are in the same state.
+
+## Running on hardware
+Running this circuit on hardware is possible, but it increases the amount of error drastically. This happens because CSWAP gates are not available in IBM's computers, so they have to be constructed from several other gates, therefore increasing the circuit's depth which increases the error rate. The circuit goes from containing 5 gates (we don't count the gates we use to prepare |q<sub>1</sub>> and |q<sub>2</sub>> because they are not part of the swap test itself) to containing 50+ gates. The following photo is what the circuit looks like when ran in IBM's Q16 Melbourne machine.
+
+![circuit-kjtzmqvm](https://user-images.githubusercontent.com/63567458/104316268-840e4c80-54dc-11eb-8e75-b0859f5bead3.png)
+
+For alternatives to the canonical swap test (the one implemented here) that reduce circuit depth and therefore increase reliability when running on hardware, read [this](https://bsiegelwax.medium.com/the-simplest-way-to-compare-single-qubit-quantum-states-8ddbefa5a93e) and [this](https://arxiv.org/pdf/1803.04114.pdf).

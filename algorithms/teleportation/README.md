@@ -14,3 +14,10 @@ The gates between the first barrier and the second one only act on the first qub
 
 Thanks to the last part of the circuit, where the receiver applys the same gates the sender prepared her qubit with in the first place but inversely, we should get the state |0> all of the time. This is because the "detangler" at the end reverts the qubit to its state at the very beggining of the circuit, which is always |0>. This can be confirmed with the histogram of the circuit, where the leftmost bit corresponds to the receiving qubit and we see we measure it to be in state |0> everytime.
 ![histogram](https://user-images.githubusercontent.com/63567458/102122809-5505ac00-3e46-11eb-8f72-93bf4098fc83.jpg)
+
+## Running on hardware
+Running this circuit on hardware requires some modifications. First, let's see how the circuit looks like after the modifications and then we can explain them. 
+
+![circuit](https://user-images.githubusercontent.com/63567458/104216688-ad769c00-543a-11eb-9be0-252abab79fe7.jpg)
+
+As you can see, the gates that changed are the ones that were conditioned in a classical bit. This types of gates are not available currently in IBM's computers, so we need to change them in order to run the circuit on them. It's quite easy to overcome this difficulty, since we can condition the gates with the corresponding qubits (this time without measuring) and we will get the same result. However, we lose the advantage that we haved where the only connection between the sender and the receiver was at the beggining to split the entangled qubits and afterwards through classical channels. Now, the whole quantum circuit has to be connected. Read more about this [here](https://qiskit.org/textbook/ch-algorithms/teleportation.html#5.-Teleportation-on-a-Real-Quantum-Computer-).
