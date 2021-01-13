@@ -15,7 +15,7 @@ Then, the qubits go through a controlled phase gate, with the control qubit bein
 
 <img src="https://user-images.githubusercontent.com/63567458/104456456-f8aebd00-55a8-11eb-8072-6ff4381a2df4.png" height="70px">
 
-As you can see, the states are not entangled since we can write them as a tensor product of the two qubits and a relative phase was added to the **control** qubit instead of the **target** qubit. We can see this effect with the statevecotr simulation that Qiskit gives us, notice that the **control** qubit (qubit 0) has a phase rotation, while the **target** qubit is right in the |1> state without any rotation. 
+As you can see, the states are not entangled since we can write them as a tensor product of the two qubits and a relative phase was added to the **control** qubit instead of the **target** qubit. We can see this effect with the statevector simulation that Qiskit gives us, notice that the **control** qubit (qubit 0) has a phase rotation, while the **target** qubit is right in the |1> state without any rotation. 
 
 ![vector](https://user-images.githubusercontent.com/63567458/104107710-b04c8200-52be-11eb-9efa-97816d6c7121.jpg)
 
