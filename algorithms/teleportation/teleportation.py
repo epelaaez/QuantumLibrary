@@ -5,11 +5,11 @@ def teleportation(img_path = IMG_PATH, hardware = False):
     Teleports the precise state of one qubit into another. 
     """
     qreg_sender   = QuantumRegister(1, name='q_sender')
-    qreg_ep       = QuantumRegister(1, name='q_entangled')
+    qreg_ep       = QuantumRegister(1, name='q_ancillary')
     qreg_receiver = QuantumRegister(1, name='q_receiver')
     creg_receiver = ClassicalRegister(1, name='receiver')
     if not hardware:
-        creg_ep       = ClassicalRegister(1, name='c_entangled')
+        creg_ep       = ClassicalRegister(1, name='c_ancillary')
         creg_sender   = ClassicalRegister(1, name='c_sender')
         qc            = QuantumCircuit(qreg_sender, qreg_ep, qreg_receiver, creg_sender, creg_ep, creg_receiver)
     else:
