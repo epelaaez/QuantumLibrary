@@ -7,7 +7,7 @@ def main():
     Main function.
     """
     loadIBM()
-    teleportation()
+    teleportation(hardware=True)
 
 def loadIBM():
     """
