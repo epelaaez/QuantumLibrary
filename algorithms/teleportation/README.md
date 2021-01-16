@@ -4,7 +4,7 @@ The quantum teleportation protocol is a fundamental part of many quantum algorit
 This protocol is useful to overcome the difficulties imposed by the [no-cloning theorem](https://en.wikipedia.org/wiki/No-cloning_theorem), which tells us that it is not possible to create an exact copy of a quantum state. Which means we cannot copy the state of one qubit into another, but we can teleport it. In fact, most uses of the teleportation protocol are to transfer the state of a qubit into another within a single QPU rather than across large distances like most sci-fi movies portray it. 
 
 The circuit is composed the following way:
-![circuit](https://user-images.githubusercontent.com/63567458/102338421-1e3dac00-3f94-11eb-8673-1086ce5c8ab2.jpg)
+![circuit](https://user-images.githubusercontent.com/63567458/104822897-3f6d1300-5846-11eb-9d13-93d744c37ded.jpg)
 
 The gates before the first barrier entangle two qubits, one that the sender will use and one that the receiver will use. The qubit that the receiver will use will eventually be in the state that the sender sends him.
 
@@ -20,6 +20,6 @@ Thanks to the last part of the circuit, where the receiver applys the same gates
 ## Running on hardware
 Running this circuit on hardware requires some modifications. First, let's see how the circuit looks like after the modifications and then we can explain them. 
 
-![circuit](https://user-images.githubusercontent.com/63567458/104216688-ad769c00-543a-11eb-9be0-252abab79fe7.jpg)
+![circuit](https://user-images.githubusercontent.com/63567458/104822939-9377f780-5846-11eb-9be3-9aef149656c5.jpg)
 
 As you can see, the gates that changed are the ones that were conditioned in a classical bit. This types of gates are not available currently in IBM's computers, so we need to change them in order to run the circuit on them. It's quite easy to overcome this difficulty, since we can condition the gates with the corresponding qubits (this time without measuring) and we will get the same result. However, we lose the advantage that we haved where the only connection between the sender and the receiver was at the beggining to split the entangled qubits and afterwards through classical channels. Now, the whole quantum circuit has to be connected. Read more about this [here](https://qiskit.org/textbook/ch-algorithms/teleportation.html#5.-Teleportation-on-a-Real-Quantum-Computer-).
