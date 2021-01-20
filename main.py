@@ -3,9 +3,6 @@ from algorithms import *
 import config
 
 def main():
-    """
-    Main function.
-    """
     loadIBM()
     teleportation(hardware=True)
 

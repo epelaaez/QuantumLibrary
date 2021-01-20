@@ -1,9 +1,6 @@
 from .. import *
 
 def teleportation(img_path = IMG_PATH, hardware = False):
-    """
-    Teleports the precise state of one qubit into another. 
-    """
     qreg_sender   = QuantumRegister(1, name='qsender')
     qreg_ep       = QuantumRegister(1, name='qancillary')
     qreg_receiver = QuantumRegister(1, name='qreceiver')
@@ -47,6 +44,7 @@ def teleportation(img_path = IMG_PATH, hardware = False):
     else:
         qc.barrier()
 
+        # Use conditional quantum gates instead of classical controlled gates
         qc.cx(qreg_ep, qreg_receiver)
         qc.cz(qreg_sender, qreg_receiver)
 
@@ -58,7 +56,7 @@ def teleportation(img_path = IMG_PATH, hardware = False):
     qc.h(qreg_receiver)
     qc.measure(qreg_receiver, creg_receiver)
 
-    # Run circuits
+    # Run circuit and output
     if hardware:
         provider = IBMQ.get_provider(hub='ibm-q')
         backend  = least_busy(provider.backends())

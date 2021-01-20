@@ -21,7 +21,7 @@ The gates between the first barrier and the second one only act on the first qub
 
 <img src="https://user-images.githubusercontent.com/63567458/104965711-99eda700-59df-11eb-828f-5fbf2fcc3eae.png" height="210px">
 
-The next gates entangle the sender qubit with the ancillary qubit and then apply a Hadamard gate to the sender qubit. Before applying this, let's see what our whole state is in right now. To do this, we can use the state of |ψ> we found in the above equation and plug it in in the first equation. The following equation shows us this state:
+The next gates entangle the sender qubit with the ancillary qubit and then apply a Hadamard gate to the sender qubit. Before applying this, let's see what our whole state is in right now. To do this, we can use the state of |ψ> we found in the above equation and plug it in the first equation. The following equation shows us this state:
 
 <img src="https://user-images.githubusercontent.com/63567458/104965995-2d26dc80-59e0-11eb-9dc2-a19555e85a96.png">
 

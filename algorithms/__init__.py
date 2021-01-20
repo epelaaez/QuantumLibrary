@@ -9,7 +9,7 @@ from qiskit.providers.ibmq import least_busy
 
 IMG_PATH = 'output_images'
 
-from .bell_state.bell_state import create_bell_state
+from .bell_state.bell_state import bell_state
 from .swap_test.swap_test import swap_test
 from .basic_phase_kickback.basic_phase_kickback import basic_phase_kickback
 from .teleportation.teleportation import teleportation

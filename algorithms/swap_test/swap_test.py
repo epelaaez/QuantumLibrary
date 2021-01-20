@@ -1,9 +1,6 @@
 from .. import *
 
 def swap_test(img_path = IMG_PATH, hardware = False):
-    """
-    The swap test circuit can tell us if two registers are in the same state without measuring them. However, it cannot tell us what state they are in. 
-    """
     qreg_1  = QuantumRegister(2, 'q1')
     qreg_2  = QuantumRegister(2, 'q2')
     ancilla = QuantumRegister(1, 'a')
@@ -26,7 +23,7 @@ def swap_test(img_path = IMG_PATH, hardware = False):
     # Measure ancilla qubit
     qc.measure(ancilla, acreg)
 
-    # Run circuit
+    # Run circuit and output
     if hardware:
         provider = IBMQ.get_provider(hub='ibm-q')
         backend  = least_busy(provider.backends())

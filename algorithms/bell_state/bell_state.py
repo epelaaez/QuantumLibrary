@@ -1,9 +1,6 @@
 from .. import *
 
-def create_bell_state(img_path = IMG_PATH, hardware = False):
-    """
-    Creates bell state with equal probability of getting state |00> and |11>.
-    """
+def bell_state(img_path = IMG_PATH, hardware = False):
     qreg = QuantumRegister(2, 'q')
     creg = ClassicalRegister(2, 'c')
     qc   = QuantumCircuit(qreg, creg)
@@ -16,7 +13,7 @@ def create_bell_state(img_path = IMG_PATH, hardware = False):
     qc.measure(qreg[0], creg[0])
     qc.measure(qreg[1], creg[1])
 
-    # Run circuit
+    # Run circuit and output
     if hardware:
         provider = IBMQ.get_provider(hub='ibm-q')
         backend  = least_busy(provider.backends())
