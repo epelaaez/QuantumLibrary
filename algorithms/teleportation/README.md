@@ -21,11 +21,13 @@ The gates between the first barrier and the second one only act on the first qub
 
 <img src="https://user-images.githubusercontent.com/63567458/104965711-99eda700-59df-11eb-828f-5fbf2fcc3eae.png" height="210px">
 
-The next gates entangle the sender qubit with the ancillary qubit and then apply a Hadamard gate to the sender qubit. Before applying this, let's see what our whole state is in right now. To do this, we can use the state of |ψ> we found in the above equation and plug it in the first equation. The following equation shows us this state:
+If you don't understand the part where we go from an exponential function to trigonometric functions, I'll advise looking into [Euler's formula](https://en.wikipedia.org/wiki/Euler%27s_formula). I just applied this identity to the exponential functions, allowing me to simplify the state into an easier one we can work with. 
+
+Before looking at the next gates, let's see the state of our three qubits together. To do this, we can use the state of |ψ> we prepared in the above equation and plug it in the first equation. The following equation shows us this state:
 
 <img src="https://user-images.githubusercontent.com/63567458/104965995-2d26dc80-59e0-11eb-9dc2-a19555e85a96.png">
 
-Now, we are going to entangle our sender and ancillary qubits with a CNOT gate and then we are going to apply a Hadamard gate to the sender qubit only. To get a better idea of what is happening, we are going to apply this operators to our whole state, so we can see the relations between the three qubits. |ψφω> in the following equation is just a short way of reffering to the state we found in the above equation. Now, the following equation shows us what happens to our state:
+Now, the following part of the circuit is going to entangle our sender and ancillary qubits with a CNOT gate and then we are going to apply a Hadamard gate to the sender qubit only. To get a better idea of what is happening, we are going to apply this operators to our whole state, so we can see the relations between the three qubits. |ψφω> in the following equation is just a short way of reffering to the state described in the above equation. The following equation shows us what happens to our state:
 
 <img src="https://user-images.githubusercontent.com/63567458/104966256-b76f4080-59e0-11eb-9c5e-e926e27e964e.png">
  
@@ -33,7 +35,7 @@ Here it gets a little bit tricky, since we are going to measure |ψ> and |φ>. A
 
 <img src="https://user-images.githubusercontent.com/63567458/104966447-306e9800-59e1-11eb-8040-3829e2fd8dff.png" height="280">
 
-You can make sure that this relation is true by checking it with the previous equation. The first two qubits will determine the thid one and you can disregard the states where the first two qubits don't correspond to the measured ones. This shows us that there is a relation between the three qubits (thanks to entanglement!).
+You can make sure that this relation is true by checking it with the previous equation. The first two qubits will determine the third one and you can disregard the states where the first two qubits don't correspond to the measured ones. This shows us that there is a relation between the three qubits (thanks to entanglement!).
 
 And this relation between the three qubits is what we are going to exploit next. The sender will inform the receiver of his measurements and the receiver will apply some gates to |ω> depending on them. This information is transferred via classical channels. A Pauli-X gate is applied if |φ> = |1> and a Pauli-Z gate is applied if |ψ> = |1>, if both states are |1> the two gates are applied in that order. Let's have a look case by case. 
 
@@ -55,7 +57,7 @@ Finally, the case in which |ψφ> = |11>, here we apply a Pauli-X gate folowed b
 
 At this point, the quantum telepertation protocol is over, the state |ω> is in the state we intended to teleport from |ψ> in each of the four possible cases. To achieve this, we needed to send two bits of information through classical channels. It is common to think that this use of classical channels throws away the whole purpose of teleporting a quantum state, but it really doesn’t. This classical communication is really the only way of ensuring that we teleport the state successfully; if we didn’t apply this step, we would be stuck with one of the four possibilities shown above without the person that has |ωi having a clue about what |ψφ> is, therefore this person would only have the intended state 1/4 of the time.
 
-In this example, we have three more gates in our circuit. This gates are not really part of the protocol, but they help us ensure the teleportation protocol was successful. Thanks to this last part, where the receiver applies the same gates the sender prepared her qubit with in the first place but inversely, we should get the state |0> all of the time. This is because the "detangler" at the end reverts the qubit to its state at the very beggining of the circuit, which is always |0>. This part is not included in practical applications of the teleportation protocol, since the qubit is often used to perform other operations, but we do it in this case to ensure that we teleported our qubit correctly. This can be confirmed with the histogram of the circuit, where the leftmost bit corresponds to the receiving qubit and we see we measure it to be in state |0> everytime.
+In this example, we have three more gates in our circuit. This gates are not really part of the protocol, but they help us ensure the teleportation protocol was successful. Thanks to this last part, where the receiver applies the same gates the sender prepared her qubit with in the first place but inversely, we should get the state |0> all of the time. This is because the "resetter" at the end reverts the qubit to its state at the very beggining of the circuit, which is |0>. This part is not included in practical applications of the teleportation protocol, since the qubit is often used to perform other operations, but we do it in this case to ensure that we teleported our qubit correctly. This can be confirmed with the histogram of the circuit, where the leftmost bit corresponds to the receiving qubit and we see we measure it to be in state |0> everytime.
 ![histogram](https://user-images.githubusercontent.com/63567458/102122809-5505ac00-3e46-11eb-8f72-93bf4098fc83.jpg)
 
 ## Running on hardware
