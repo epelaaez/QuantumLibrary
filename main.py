@@ -3,7 +3,37 @@ from algorithms import *
 import config
 
 def main():
-    deutsch_jozsa()
+    promptCircuits()
+
+def promptCircuits():
+    circuits = {
+        'Bell state': bell_state,
+        'Basic phase kickback': basic_phase_kickback,
+        'Swap test': swap_test,
+        'Teleportation protocol': teleportation,
+    }
+    
+    print('Select the circuit you want to run:', end='')
+    
+    circuitKeys = list(circuits.keys())
+
+    for n, circuit in enumerate(circuitKeys):
+        print(f'\n \t {n}: {circuit}', end='')
+    
+    print()
+
+    selection = None
+    while type(selection) != int:
+        selection = input('Your selection: ')
+        try:
+            selection = int(selection)
+        except ValueError:
+            pass
+        if selection < 0 or selection >= len(circuits):
+            selection = None
+    
+    print(f'Running {circuitKeys[selection]}')
+
 
 def loadIBM():
     """
