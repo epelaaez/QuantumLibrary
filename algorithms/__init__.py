@@ -13,3 +13,4 @@ from .bell_state.bell_state import bell_state
 from .swap_test.swap_test import swap_test
 from .basic_phase_kickback.basic_phase_kickback import basic_phase_kickback
 from .teleportation.teleportation import teleportation
+from .deutsch_jozsa.deutsch_jozsa import deutsch_jozsa

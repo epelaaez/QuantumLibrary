@@ -3,8 +3,7 @@ from algorithms import *
 import config
 
 def main():
-    loadIBM()
-    teleportation(hardware=True)
+    deutsch_jozsa()
 
 def loadIBM():
     """
