@@ -33,6 +33,7 @@ def promptCircuits():
             selection = None
     
     print(f'Running {circuitKeys[selection]}')
+    circuits[circuitKeys[selection]]()
 
 
 def loadIBM():
