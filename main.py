@@ -7,7 +7,7 @@ def main():
 
 def loadIBM():
     """
-    Loads IBM account to access real hardware to run circuits on.
+    Loads IBM account to access real hardware to run circuits on. You need to call this function to run your circuit in hardware; if you only want to simulate the circuit in your local machine, there is no need to call it.
     """
     try:
         IBMQ.load_account()
