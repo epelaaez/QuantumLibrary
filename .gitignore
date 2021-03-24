@@ -7,3 +7,6 @@ __pycache__/
 
 # Ignore generated images
 output_images/
+
+# Ignore notebook checkpoints
+.ipynb_checkpoints/
