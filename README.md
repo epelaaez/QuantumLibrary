@@ -1,7 +1,7 @@
 # Quantum Library
 This project aims to be a quantum library containing various circuits and algorithms commonly used in quantum computing. These will be implemented using Qiskit in Jupyter notebooks, one of many tools out there to write quantum algorithms but, in my opinion, the easier one to understand. Each circuit will be accompanied with a brief description of it including how it works and how it is used in larger-scale circuits or algorithms. 
 
-The main goal of this project is to build a large collection of quantum circuits, from the simplest ones to more complicated ones. To achieve this, contributions are very welcome and encouraged, see more in [Contributing](#contributing)
+The main goal of this project is to build a large collection of quantum circuits, from the simplest ones to more complicated ones. To achieve this, contributions are very welcome and encouraged, see more in [Contributing](#contributing).
 
 ## Set up
 Once you clone the repository, you will need to create a new file called `config.py` (or change the name of the provided [`config_ex.py`](/config_ex.py) file) inside the `algorithms` folder, this is where you will store your IBM Quantum Experience API token. If you don't have an account yet, go to [IBM Quantum Experience](https://quantum-computing.ibm.com) to create one. Inside this file, just replace the following code `YOUR_KEY` with your actual key.
@@ -34,6 +34,6 @@ Note that not all circuits may be run in real hardware and some require modifica
 ## Contributing
 Anyone is welcome and encouraged to contribute to this project, whether you are an expert in the field or just getting started on it. To contribute, you can clone the repository in your local machine, make the changes you want to contribute in a separate branch, and then open a pull request describing the changes you made. The pull request will then be reviewed and discussed prior to merging. 
 
-<hr>
+<br>
 
 There is a previous version of this project, which has some unfinished circuits and descriptions, therefore I don't recommend it. However, you can find it [here](https://github.com/epelaaez/QuantumLibrary/tree/master/_old).
