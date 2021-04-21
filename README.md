@@ -1,7 +1,9 @@
 # Quantum Library
-This project aims to be a quantum library containing various circuits and algorithms commonly used in quantum computing. These will be implemented using Qiskit in Jupyter notebooks, one of many tools out there to write quantum algorithms but, in my opinion, the easier one to understand. Each circuit will be accompanied with a brief description of it including how it works and how it is used in larger-scale circuits or algorithms. 
+This repository contains work I have done in quantum computing using the Qiskit library in Python. Most of it consists of notebooks going through an specific algorithm or protocol in quantum computation while trying to give the best description possible and linking to useful resources to get a more in-depth view of the topic discussed. I am relatively new to the field of quantum information and quantum computation (I started in summer of 2020), so the topics covered in this repo may not be very advanced as they mostly reflect my learning process and progress.
 
-The main goal of this project is to build a large collection of quantum circuits, from the simplest ones to more complicated ones. To achieve this, contributions are very welcome and encouraged, see more in [Contributing](#contributing).
+The main goal of this repo is to have a reliable library which I or anyone can access to learn or verify something about the topics covered. Therefore, anyone is welcomed to contribute to the project if they find a mistake, would like to add to an explanation, or simply thinks that something should be different.  
+
+Some instructions to run this project locally and collaborate to it are included in the rest of this document in case someone wants to do so. 
 
 ## Set up
 Once you clone the repository, you will need to create a new file called `config.py` (or change the name of the provided [`config_ex.py`](/config_ex.py) file) inside the `algorithms` folder, this is where you will store your IBM Quantum Experience API token. If you don't have an account yet, go to [IBM Quantum Experience](https://quantum-computing.ibm.com) to create one. Inside this file, just replace the following code `YOUR_KEY` with your actual key.
@@ -15,9 +17,6 @@ from qiskit import *
 from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector
 ```
 Imports from `qiskit.visualization` may vary depending on the circuit, so be sure to import only the neccesary ones.
-
-## Documentation
-As already mentioned, all circuits have a description included. This explanation is given inside the Jupyter notebook, explaining step by step what is going on in the code and in most cases an overall description of the circuit. If you are willing to contribute on improving this documentation, please feel free to do so with a pull request!
 
 ## Run on hardware
 To run the circuits on real hardware, you will need to set up your IBM account as specified above. To run the circuit you desire in a real quantum computer, just call the function as you normally would but set the optional argument `hardware` to `True`.
