@@ -16,7 +16,7 @@ If you want to run a certain circuit without cloning the repository, copy the fu
 from qiskit import *
 from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector
 ```
-Imports from `qiskit.visualization` may vary depending on the circuit, so be sure to import only the neccesary ones.
+Imports from `qiskit.visualization` may vary depending on the circuit, so be sure to import only the neccesary ones. You may also need to change the code a little bit since I frequently use imported functions from `_Functions.ipynb`. However, these are not too complicated and I only use them to not write the same thing over and over. 
 
 ## Run on hardware
 To run the circuits on real hardware, you will need to set up your IBM account as specified above. To run the circuit you desire in a real quantum computer, just call the function as you normally would but set the optional argument `hardware` to `True`.
@@ -32,7 +32,5 @@ Note that not all circuits may be run in real hardware and some require modifica
 
 ## Contributing
 Anyone is welcome and encouraged to contribute to this project, whether you are an expert in the field or just getting started on it. To contribute, you can clone the repository in your local machine, make the changes you want to contribute in a separate branch, and then open a pull request describing the changes you made. The pull request will then be reviewed and discussed prior to merging. 
-
-<br>
 
 There is a previous version of this project, which has some unfinished circuits and descriptions, therefore I don't recommend it. However, you can find it [here](https://github.com/epelaaez/QuantumLibrary/tree/master/_old).
