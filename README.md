@@ -1,4 +1,7 @@
 # Quantum Library
+
+<small>By Emilio Peláez</small>
+
 This repository contains work I have done in quantum computing using the Qiskit library in Python. Most of it consists of notebooks going through an specific algorithm or protocol in quantum computation while trying to give the best description possible and linking to useful resources to get a more in-depth view of the topic discussed. I am relatively new to the field of quantum information and quantum computation (I started in summer of 2020), so the topics covered in this repo may not be very advanced as they mostly reflect my learning process and progress.
 
 The main goal of this repo is to have a reliable library which I or anyone can access to learn or verify something about the topics covered. Therefore, anyone is welcomed to contribute to the project if they find a mistake, would like to add to an explanation, or simply thinks that something should be different.  
