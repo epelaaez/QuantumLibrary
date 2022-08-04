@@ -11,26 +11,12 @@ Once you clone the repository, you will need to create a new file called `config
 IBM_KEY = "YOUR_KEY"
 ```
 
-If you want to run a certain circuit without cloning the repository, copy the function that builds your desired circuit and make sure to include these imports at the top of your file instead of the single import given (since this import imports all libraries and functions from `_Functions.ipynb`).
-```python
-from qiskit import *
-from qiskit.visualization import plot_histogram, circuit_drawer, plot_bloch_multivector
-```
-Imports from `qiskit.visualization` may vary depending on the circuit, so be sure to import only the neccesary ones. You may also need to change the code a little bit since I frequently use imported functions from `_Functions.ipynb`. However, these are not too complicated and I only use them to not write the same thing over and over. 
-
 ## Run on hardware
-To run the circuits on real hardware, you will need to set up your IBM account as specified above. To run the circuit you desire in a real quantum computer, just call the function as you normally would but set the optional argument `hardware` to `True`.
-```python
-run(circ, hardware=True)
-```
+To run the circuits on real hardware, you will need to set up your IBM account as specified above. To run the circuit you desire in a real quantum computer, just uncomment the few lines of code that are above the code that runs the simulator. You will also need to load your IBM account, which relies on your `config.py` file being correctly written, to gain access to the hardware.
 
-You will also need to call the function `loadIBM()`, which relies on the your `config.py` file, beforehand to set up your IBM account correctly and gain access to the hardware. It is not necessary to call this function if you're not going to be using IBM's hardware to run the circuits, so you may remove it to increase the speed of the program. It is recommended to run this function on `_Functions.ipynb` before opening the other notebooks, this way the information gets imported.
+Note that not all circuits may be run in real hardware and some require modifications to run correctly. Those that require modifications to run correctly will make the necessary modifications when the function that builds the circuit gets the argument `hardware=True`, so you don't have to worry about modifying anything. However, I encourage you to check the code and the description of the circuit to understand the modifications made, why they are needed and how they work. The circuits that can't run in real hardware  or don't need any changes won't accept the optional argument `hardware`. 
 
-Note that not all circuits may be run in real hardware and some require modifications to run correctly. Those that require modifications to run correctly will make the necessary modifications when the function that builds the circuit gets the argument `hardware=True`, so you don't have to worry about modifying anything. However, I encourage you to check the code and the description of the circuit to understand the modifications made, why they are needed and how they work. The circuits that can't run in real hardware  or don't need any changes won't accept the optional argument `hardware` (you need to pass it to `run()`, though). 
-
-**Note**: running a circuit on hardware can take time depending on the computers available and their queue. The `run()` function is programmed to choose the least busy machine, but this doesn't guarantee that it will run immediately.
+**Note**: running a circuit on hardware can take time depending on the computers available and their queue. The `least_busy()` function is used to choose the least busy machine, but this doesn't guarantee that it will run immediately.
 
 ## Contributing
 Anyone is welcome and encouraged to contribute to this project, whether you are an expert in the field or just getting started on it. To contribute, you can clone the repository in your local machine, make the changes you want to contribute in a separate branch, and then open a pull request describing the changes you made. The pull request will then be reviewed and discussed prior to merging. 
-
-There is a previous version of this project, which has some unfinished circuits and descriptions, therefore I don't recommend it. However, you can find it [here](https://github.com/epelaaez/QuantumLibrary/tree/master/_old).
